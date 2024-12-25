@@ -15,7 +15,7 @@
   "scripts": {
     "dev": "node ./build.js",
     "build": "NODE_ENV=production node ./build.js",
-    "test": "tsc --noEmit && vitest run --passWithNoTests --coverage",
+    "test": "tsc --noEmit && vitest run --passWithNoTests",
     "test:watch": "vitest",
     "format": "prettier ./src --write",
     "clean": "rm -rf ./dist ./node_modules"
@@ -23,7 +23,6 @@
   "devDependencies": {
     "@inlang/sdk": "workspace:*",
     "@sinclair/typebox": "^0.31.17",
-    "@vitest/coverage-v8": "^2.0.5",
     "esbuild": "^0.24.2",
     "memfs": "4.6.0",
     "prettier": "^3.3.3",
