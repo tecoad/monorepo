@@ -14,7 +14,7 @@
 	"scripts": {
 		"dev": "node ./build.js",
 		"build": "NODE_ENV=production node ./build.js",
-		"test": "tsc --noEmit && vitest run --passWithNoTests --coverage",
+		"test": "tsc --noEmit && vitest run",
 		"lint": "eslint ./src --fix",
 		"format": "prettier ./src --write",
 		"clean": "rm -rf ./dist ./node_modules"
@@ -28,6 +28,7 @@
 		"@types/flat": "^5.0.2",
 		"@types/lodash.merge": "^4.6.7",
 		"@types/parsimmon": "1.10.6",
+		"esbuild": "^0.24.2",
 		"flat": "^5.0.2",
 		"parsimmon": "^1.18.1",
 		"prettier": "^3.3.3",
