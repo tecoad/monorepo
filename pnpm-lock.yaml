@@ -274,6 +274,25 @@ importers:
         specifier: 2.1.8
         version: 2.1.8(@types/node@22.10.1)(jsdom@25.0.1)(lightningcss@1.27.0)(msw@2.4.11(typescript@5.7.2))(terser@5.36.0)
 
+  packages/inlang/plugins/t-function-matcher:
+    dependencies:
+      '@inlang/sdk':
+        specifier: workspace:*
+        version: link:../../sdk
+    devDependencies:
+      '@types/parsimmon':
+        specifier: 1.10.6
+        version: 1.10.6
+      parsimmon:
+        specifier: ^1.18.1
+        version: 1.18.1
+      typescript:
+        specifier: ^5.5.2
+        version: 5.7.2
+      vitest:
+        specifier: 2.1.8
+        version: 2.1.8(@types/node@22.10.1)(jsdom@25.0.1)(lightningcss@1.27.0)(msw@2.4.11(typescript@5.7.2))(terser@5.36.0)
+
   packages/inlang/sdk:
     dependencies:
       '@lix-js/sdk':
