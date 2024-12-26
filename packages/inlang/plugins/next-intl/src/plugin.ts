@@ -31,7 +31,7 @@ export const plugin: Plugin<{
 	loadMessages: async ({ settings, nodeishFs }) => {
 		settings["plugin.inlang.nextIntl"].variableReferencePattern = settings[
 			"plugin.inlang.nextIntl"
-		].variableReferencePattern || ["{{", "}}"];
+		].variableReferencePattern || ["{", "}"];
 		return loadMessages({
 			settings,
 			pluginSettings: settings["plugin.inlang.nextIntl"],
@@ -41,7 +41,7 @@ export const plugin: Plugin<{
 	saveMessages: async ({ messages, settings, nodeishFs }) => {
 		settings["plugin.inlang.nextIntl"].variableReferencePattern = settings[
 			"plugin.inlang.nextIntl"
-		].variableReferencePattern || ["{{", "}}"];
+		].variableReferencePattern || ["{", "}"];
 		return saveMessages({
 			pluginSettings: settings["plugin.inlang.nextIntl"],
 			nodeishFs,
