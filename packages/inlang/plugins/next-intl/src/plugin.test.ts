@@ -145,7 +145,7 @@ describe("variable reference", () => {
     const fs = createNodeishMemoryFs();
     await fs.writeFile(
       "./en.json",
-      JSON.stringify({ test: "Hello {{username}}" }),
+      JSON.stringify({ test: "Hello {username}" }),
     );
     const pluginSettings: PluginSettings = {
       pathPattern: "./{languageTag}.json",
@@ -179,7 +179,7 @@ describe("variable reference", () => {
     const fs = createNodeishMemoryFs();
     await fs.writeFile(
       "./en.json",
-      JSON.stringify({ test: "{{username}} the great" }),
+      JSON.stringify({ test: "{username} the great" }),
     );
     const pluginSettings: PluginSettings = {
       pathPattern: "./{languageTag}.json",
