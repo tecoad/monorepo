@@ -1,9 +1,4 @@
-import type {
-  BundleNested,
-  InlangPlugin,
-  NewBundleNested,
-  ResourceFile,
-} from "@inlang/sdk2";
+import type { BundleNested, InlangPlugin, NewBundleNested } from "@inlang/sdk";
 import { PluginSettings } from "./settings.js";
 import { createMessage } from "./parse.js";
 import { serializeMessage } from "./serialize.js";
@@ -60,7 +55,7 @@ export const plugin: InlangPlugin<{
       // find corresponding locale for file
       const withoutAfter = file.path.replace(after, ""); // remove everything after {locale} from the file path
       const locale = withoutAfter.slice(
-        withoutAfter.lastIndexOf(cleanBefore) + cleanBefore.length + 1,
+        withoutAfter.lastIndexOf(cleanBefore) + cleanBefore.length + 1
       );
       if (!settings.locales.includes(locale)) continue; // fail?
 
@@ -104,7 +99,7 @@ export const plugin: InlangPlugin<{
 
       for (const bundle of bundles) {
         const message = bundle.messages.find(
-          (message) => message.locale === locale,
+          (message) => message.locale === locale
         );
         if (!message) continue;
         messages[bundle.id] = serializeMessage(message);

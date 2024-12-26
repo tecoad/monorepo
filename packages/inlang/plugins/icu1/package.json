@@ -1,0 +1,30 @@
+{
+  "name": "@inlang/plugin-icu1",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "./dist"
+  ],
+  "scripts": {
+    "dev": "inlang plugin build --entry ./src/index.ts --outdir ./dist --watch",
+    "build": "tsc --noEmit && inlang plugin build --entry ./src/index.ts --outdir ./dist",
+    "test": "tsc --noEmit && vitest run --passWithNoTests --coverage",
+    "lint": "eslint ./src --fix",
+    "format": "prettier ./src --write",
+    "clean": "rm -rf ./dist ./node_modules"
+  },
+  "dependencies": {
+    "@formatjs/icu-messageformat-parser": "^2.7.8"
+  },
+  "devDependencies": {
+    "@inlang/sdk": "workspace:*",
+    "@sinclair/typebox": "^0.31.17",
+    "typescript": "^5.5.2",
+    "prettier": "3.3.3",
+    "vitest": "0.33.0"
+  }
+}

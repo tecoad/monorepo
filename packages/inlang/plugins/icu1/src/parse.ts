@@ -3,7 +3,7 @@ import {
   TYPE,
   type MessageFormatElement,
 } from "@formatjs/icu-messageformat-parser";
-import type { MessageNested, Option, Pattern } from "@inlang/sdk2";
+import type { MessageNested, Option, Pattern } from "@inlang/sdk";
 
 /**
  * Represents a (partial) branch
@@ -41,7 +41,7 @@ export const NULL_BRANCH: Branch = { pattern: [], match: [] };
 export function generateBranches(
   elements: MessageFormatElement[],
   branch: Branch,
-  poundReference: string | undefined = undefined,
+  poundReference: string | undefined = undefined
 ): Branch[] {
   let branches: Branch[] = [structuredClone(branch)];
 
@@ -57,7 +57,7 @@ export function generateBranches(
         for (const branch of branches) {
           branch.pattern.push({
             type: "expression",
-            arg: { type: "variable", name: element.value },
+            arg: { type: "variable-reference", name: element.value },
           });
         }
         break;
@@ -68,15 +68,15 @@ export function generateBranches(
         let options: Option[] = [];
         if (typeof element.style === "string") {
           options = [
-            { name: "style", value: { type: "literal", name: element.style } },
+            { name: "style", value: { type: "literal", value: element.style } },
           ];
         }
         if (typeof element.style === "object" && element.style) {
           options = Object.entries(element.style.parsedOptions).map(
             ([key, value]) => ({
               name: key,
-              value: { type: "literal", name: value },
-            }),
+              value: { type: "literal", value: value },
+            })
           );
         }
 
@@ -89,9 +89,9 @@ export function generateBranches(
         for (const branch of branches) {
           branch.pattern.push({
             type: "expression",
-            arg: { type: "variable", name: element.value },
+            arg: { type: "variable-reference", name: element.value },
             annotation: {
-              type: "function",
+              type: "function-reference",
               name: fnName[element.type],
               options,
             },
@@ -128,7 +128,7 @@ export function generateBranches(
                   ? [...existingBranch.match, selector]
                   : existingBranch.match,
               },
-              element.value,
+              element.value
             );
             newBranches.push(...newBranchesForBranch);
           }
@@ -143,7 +143,7 @@ export function generateBranches(
             branch.pattern.push({
               type: "expression",
               arg: {
-                type: "variable",
+                type: "variable-reference",
                 name: poundReference,
               },
             });
@@ -184,7 +184,7 @@ export function createMessage({
   for (const branch of branches) {
     for (const elem of branch.pattern) {
       if (elem.type === "expression") {
-        inputs.add(elem.arg.name);
+        inputs.add(elem.arg.value);
       }
     }
     for (const selector of branch.match) {
@@ -201,7 +201,7 @@ export function createMessage({
         selectorFunction,
       ];
       const alreadyExists = selectors.find(
-        (s) => s[0] === selector[0] && s[1] === selector[1],
+        (s) => s[0] === selector[0] && s[1] === selector[1]
       );
       if (alreadyExists) continue;
       else selectors.push(selector);
@@ -221,8 +221,8 @@ export function createMessage({
     })),
     selectors: selectors.map(([name, fn]) => ({
       type: "expression",
-      arg: { type: "variable", name },
-      annotation: fn ? { type: "function", name: fn, options: [] } : undefined,
+      arg: { type: "variable-reference", name },
+      annotation: fn ? { type: "function-reference", name: fn, options: [] } : undefined,
     })),
     variants: branches.map((branch) => {
       const match = {};
