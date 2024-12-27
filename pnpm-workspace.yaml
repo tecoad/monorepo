@@ -1,7 +1,7 @@
 packages:
+  - 'inlang/source-code/plugins/*'
   - 'packages/*'
   - 'packages/inlang/*'
-  - 'packages/inlang/plugins/*'
   - 'packages/inlang/*/example'
   - 'packages/inlang/*/examples/*'
   - 'packages/*/example'

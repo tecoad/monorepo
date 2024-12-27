@@ -1,6 +1,6 @@
 {
-	"name": "@inlang/plugin-next-intl",
-	"version": "1.4.0",
+	"name": "@inlang/plugin-m-function-matcher",
+	"version": "0.9.36",
 	"type": "module",
 	"exports": {
 		".": "./dist/index.js"
@@ -11,23 +11,25 @@
 	"publishConfig": {
 		"access": "public"
 	},
+	"recommends": [
+		"m/tdozzpa",
+		"m/2qj2w8pu",
+		"m/r7kp499g",
+		"m/gerre34r"
+	],
 	"scripts": {
 		"dev": "node ./build.js",
 		"build": "NODE_ENV=production node ./build.js",
-		"test": "tsc --noEmit && vitest run --passWithNoTests --coverage",
+		"test": "tsc --noEmit && vitest run",
 		"format": "prettier ./src --write",
 		"clean": "rm -rf ./dist ./node_modules"
 	},
 	"dependencies": {
-		"@inlang/detect-json-formatting": "1.0.0",
-		"@inlang/sdk": "0.36.3",
-		"@sinclair/typebox": "0.31.28"
+		"@inlang/sdk": "workspace:*"
 	},
 	"devDependencies": {
-		"@types/flat": "^5.0.2",
-		"@types/lodash.merge": "^4.6.7",
+		"@opral/tsconfig": "workspace:*",
 		"@types/parsimmon": "1.10.6",
-		"flat": "^5.0.2",
 		"parsimmon": "^1.18.1",
 		"typescript": "^5.5.2",
 		"vitest": "2.1.8"
