@@ -255,6 +255,37 @@ importers:
         specifier: ^2.0.5
         version: 2.1.8(@types/node@22.10.1)(jsdom@25.0.1)(lightningcss@1.27.0)(msw@2.4.11(typescript@5.7.2))(terser@5.36.0)
 
+  packages/inlang/plugins/json:
+    dependencies:
+      '@inlang/detect-json-formatting':
+        specifier: 1.0.0
+        version: 1.0.0
+      '@inlang/sdk':
+        specifier: 0.36.3
+        version: 0.36.3
+      '@sinclair/typebox':
+        specifier: 0.31.28
+        version: 0.31.28
+    devDependencies:
+      '@types/flat':
+        specifier: ^5.0.2
+        version: 5.0.5
+      '@types/lodash.merge':
+        specifier: 4.6.7
+        version: 4.6.7
+      flat:
+        specifier: ^5.0.2
+        version: 5.0.2
+      lodash.merge:
+        specifier: 4.6.2
+        version: 4.6.2
+      typescript:
+        specifier: ^5.5.2
+        version: 5.7.2
+      vitest:
+        specifier: 2.1.8
+        version: 2.1.8(@types/node@22.10.1)(jsdom@25.0.1)(lightningcss@1.27.0)(msw@2.4.11(typescript@5.7.2))(terser@5.36.0)
+
   packages/inlang/plugins/m-function-matcher:
     dependencies:
       '@inlang/sdk':
@@ -3300,6 +3331,9 @@ packages:
 
   '@types/lodash-es@4.17.12':
     resolution: {integrity: sha512-0NgftHUcV4v34VhXm8QBSftKVXtbkBG3ViCjs6+eJ5a6y6Mi/jiFGPc1sC7QK+9BFhWrURE3EOggmWaSxL9OzQ==}
+
+  '@types/lodash.merge@4.6.7':
+    resolution: {integrity: sha512-OwxUJ9E50gw3LnAefSHJPHaBLGEKmQBQ7CZe/xflHkyy/wH2zVyEIAKReHvVrrn7zKdF58p16We9kMfh7v0RRQ==}
 
   '@types/lodash.merge@4.6.9':
     resolution: {integrity: sha512-23sHDPmzd59kUgWyKGiOMO2Qb9YtqRO/x4IhkgNUiPQ1+5MUVqi6bCZeq9nBJ17msjIMbEIO5u+XW4Kz6aGUhQ==}
@@ -11126,6 +11160,10 @@ snapshots:
       '@types/node': 22.10.1
 
   '@types/lodash-es@4.17.12':
+    dependencies:
+      '@types/lodash': 4.17.12
+
+  '@types/lodash.merge@4.6.7':
     dependencies:
       '@types/lodash': 4.17.12
 
