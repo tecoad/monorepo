@@ -27,7 +27,7 @@ function App() {
 			<button onClick={() => setLocale("en")}>Switch locale to en</button>
 			<button onClick={() => setLocale("de")}>Switch locale to de</button>
 			<button onClick={() => setLocale("fr")}>Switch locale to fr</button>
-			<p>{m.orange_dog_wheel()}</p>
+			<p>{m.Capacitor_Sanbox_App()}</p>
 		</div>
 	);
 }
