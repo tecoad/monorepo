@@ -16,6 +16,7 @@ setBasePath("https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.16.0/cdn/")
 
 const router = createBrowserRouter(routes);
 
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>
 		<PostHogProvider client={posthog}>
@@ -23,3 +24,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 		</PostHogProvider>
 	</React.StrictMode>
 );
+
+
