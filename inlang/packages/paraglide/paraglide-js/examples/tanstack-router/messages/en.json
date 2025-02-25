@@ -1,0 +1,5 @@
+{
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"welcome": "Welcome to the Tanstack Router Paraglide adapter example.",
+	"about": "This is the /other page that only exists to illustrate navigation with `localizeHref()`"
+}
