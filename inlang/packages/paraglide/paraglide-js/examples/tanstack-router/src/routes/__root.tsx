@@ -27,6 +27,17 @@ function RootComponent() {
 				>
 					About
 				</Link>
+				<Link
+					to="/posts/$postId"
+					params={{
+						postId: "1",
+					}}
+					activeProps={{
+						className: "font-bold",
+					}}
+				>
+					Blog
+				</Link>
 			</div>
 			<hr />
 			<Outlet />

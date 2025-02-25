@@ -1,13 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { RouterProvider, createRouter } from '@tanstack/react-router'
-import { routeTree } from './routeTree.gen'
+import {
+	RouterProvider,
+	createRouteMask,
+	createRouter,
+} from "@tanstack/react-router";
+import { routeTree } from "./routeTree.gen";
+
+const localizedRouteMask = createRouteMask({
+	routeTree: routeTree,
+	from: "/",
+	to: "/about",
+});
+
+console.log(routeTree);
 
 // Set up a Router instance
 const router = createRouter({
-  routeTree,
-  defaultPreload: 'intent',
-})
+	routeTree,
+	defaultPreload: "intent",
+	routeMasks: [localizedRouteMask],
+});
 
 // Register things for typesafety
 declare module '@tanstack/react-router' {
