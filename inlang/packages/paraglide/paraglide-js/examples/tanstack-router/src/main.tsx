@@ -9,8 +9,8 @@ import { routeTree } from "./routeTree.gen";
 
 const localizedRouteMask = createRouteMask({
 	routeTree: routeTree,
-	from: "/",
-	to: "/about",
+	from: "/de/",
+	to: "/",
 });
 
 console.log(routeTree);
